@@ -185,6 +185,13 @@ public class BinarySearchTree<T extends Comparable<T>> {
 		return (T) temp.data;
 	}
 	
+	
+	/**
+	 * Basic implementation for finding something. It follows a path down the tree
+	 * until it either arrives at null (not found) or at the node (found). Returns true if
+	 * found, false if not.
+	 */
+	
 	public boolean find(T data) {
 		if(data == null) {
 			throw new NullPointerException();
@@ -198,11 +205,6 @@ public class BinarySearchTree<T extends Comparable<T>> {
 		}
 	}
 	
-	/**
-	 * Basic implementation for finding something. It follows a path down the tree
-	 * until it either arrives at null (not found) or at the node (found). Returns true if
-	 * found, false if not.
-	 */
 	private findRec(T data, BSTNode curr) {
 		if(curr == null) {
 			return false;
