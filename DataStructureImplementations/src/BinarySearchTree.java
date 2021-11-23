@@ -79,7 +79,7 @@ public class BinarySearchTree<T extends Comparable<T>> {
 	 * as we add in the new node. Useful if we want to balance later on.
 	 */
 	
-	/*public boolean add(T data) {
+	public boolean add(T data) {
 		if(data == null) {
 			throw new NullPointerException();
 		}
@@ -108,7 +108,7 @@ public class BinarySearchTree<T extends Comparable<T>> {
 		return curr;
 		
 	}
-	*/
+	
 	
 	/** No balancing implementation of remove. Simple recursive method.
 	 *  In each iteration, returns the reference to the subtree that was
@@ -118,7 +118,7 @@ public class BinarySearchTree<T extends Comparable<T>> {
 	 *  the predecessor up the tree.
 	 */
 	
-	/*public boolean remove(T data) {
+	public boolean remove(T data) {
 		if(data == null) {
 			throw new NullPointerException();
 		}
@@ -184,5 +184,38 @@ public class BinarySearchTree<T extends Comparable<T>> {
 		
 		return (T) temp.data;
 	}
-	*/
+	
+	public boolean find(T data) {
+		if(data == null) {
+			throw new NullPointerException();
+		}
+		
+		if(root == null) {
+			return false;
+		}
+		else {
+			return findRec(data, root);
+		}
+	}
+	
+	/**
+	 * Basic implementation for finding something. It follows a path down the tree
+	 * until it either arrives at null (not found) or at the node (found). Returns true if
+	 * found, false if not.
+	 */
+	private findRec(T data, BSTNode curr) {
+		if(curr == null) {
+			return false;
+		}
+		
+		if(data.compareTo(curr.data) > 0) {
+			return findRec(data, curr.right);
+		}
+		else if(data.compareTo(curr.data) < 0) {
+			return findRec(data.curr.left);
+		}
+		else {
+			return true;
+		}
+	}
 }
